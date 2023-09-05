@@ -1,0 +1,69 @@
+#
+#Monitors:
+#xrandr | grep -w 'connected' | awk -F' ' '{print }'
+#Monitor count:
+#xrandr | grep -w 'connected' | awk -F' ' '{print }' | wc -l
+
+#fontlist:
+fc-list | awk -F: '{print $2}'
+
+# bulk commands
+  325  mkdir Aurloads
+  326  cd ./Aurloads/
+  327  git clone https://aur.archlinux.org/yay.git
+  328  ls -la
+  329  cd yay/
+  330  ls -la
+  331  makepkg
+  332  sudo makepkg
+  333  pacman -S base-devel
+  334  sudo pacman -S base-devel
+  335  makepkg -si
+  336  yay --version
+  337   fc-font
+  338  ls -la ~/Downloads/
+  339  zip --help
+  340  man fc-list
+  341  fc-list
+  342  pacman -Ss nerd-fonts
+  343  sudo pacman -S nerd-fonts
+  344  fc-list
+  345  fc-list | grep comicshans
+  346  fc-list | grep comicshanns
+  347  fc-list | grep comicshanns-nerd
+  348  fc-list | grep 'comicshanns-nerd'
+  349  pacman -S ttf-comicshanns-nerd
+  350  sudo pacman -S ttf-comicshanns-nerd
+  351  sudo pacman -S otf-comicshanns-nerd
+  352  pacman -S ttf-nerd-fonts-symbols-mono
+  353  sudo pacman -S ttf-nerd-fonts-symbols-mono
+  354  ls -la
+  355  cd
+  356  ls -la
+  357  vim rndscripts.txt 
+  358  fc-list | awk -F: '{ print $2 }'
+  359  fc-list | awk -F: '{ print $2,$3 }'
+  360  yay -S pacman-contrib
+  361  man pacman-contrib
+  362  yay -S pulseaudio alsa-utils polybar
+  363  cd Aurloads/
+  364  git clone https://github.com/catppuccin/xfce4-terminal
+  365  ls -la
+  366  cd xfce4-terminal/
+  367  ls -la
+  368  cd ./src/
+  369  ls -la
+  370  vim ../.editorconfig 
+  371  cp * ~/.local/share/xfce4/terminal/colorschemes/
+  372  cp * mkdir -p ~/.local/share/xfce4/terminal/colorschemes/
+  373  mkdir -p ~/.local/share/xfce4/terminal/colorschemes/
+  374  cp * mkdir -p ~/.local/share/xfce4/terminal/colorschemes/
+  375  cp * ~/.local/share/xfce4/terminal/colorschemes/
+  376  exit
+
+yay -S vifm-git
+rm -rf ~/.vifm/colors/ && git clone https://github.com/vifm/vifm-colors ~/.vifm/colors 
+
+#Note: replace ~/.config/vifm with ~/.vifm in commands above if you store your configuration there.#To check for updates just type git pull in ~/.config/vifm/colors.
+#Load with :colorscheme theme-name in vifm, or write colorscheme theme-name in vifm's configuration file ~/.config/vifm/vifmrc.
+#If you have any color themes that are not in this repo, feel free to fork, add it and send a pull request!
