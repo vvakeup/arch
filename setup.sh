@@ -1,10 +1,23 @@
 #!/bin/sh
 
 XINITRC=$HOME/.xinitrc
+
 #sudo pacman -S wget
 #sudo pacman -S nvidia nvidia-utlis &&
-#sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu nitrogen picom
-xfce4-terminal firefox arandr polybar
+sudo pacman -S xorg xorg-xinit bspwm sxhkd dmenu nitrogen picom xfce4-terminal arandr polybar
+
+mkdir $HOME/Aurloads
+cd $HOME/Aurloads/
+git clone https://aur.archlinux.org/yay.git
+cd ./yay/
+makepkg -si
+cd $HOME/Aurloads/
+yay -S pacman-contrib
+git clone https://github.com/catppuccin/xfce4-terminal
+mkdir -p ~/.local/share/xfce4/terminal/colorschemes/
+cp $HOME/Aurloads/xfce4-terminal/src/* $HOME/.local/share/xfce4/terminal/colorschemes/
+yay -S vifm-git
+
 
 if [ ! -d ~/.config/bswpm/ ]; then
 	mkdir -p ~/.config/bspwm
@@ -38,9 +51,9 @@ sudo /bin/sh -c "grep -l 'vsync \= true\;' /etc/xdg/picom.conf | xargs sed -i 's
 
 touch ~/.screenlayout/display.sh && chmod +x ~/.screenlayout/display.sh
 
-cat <<EOF >~/.screenlayout/display.sh
+#cat <<EOF >~/.screenlayout/display.sh
 #!/bin/sh
 #
-
-xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
-EOF
+#xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
+#EOF
+echo "Setup Done."
