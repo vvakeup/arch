@@ -1,8 +1,8 @@
 vim.g.loaded_netrw=1
 vim.g.loaded_netrwPlugin=1
+vim.g.loaded_python3_provider=0
 vim.g.mapleader=" " 
-vim.g.python3_host_prog='/usr/bin/python'
-vim.opt.clipboard=xclip
+--vim.g.python3_host_prog='/usr/bin/python'
 vim.opt.signcolumn='yes'
 vim.opt.encoding='utf-8'
 vim.opt.fileformat='unix'
@@ -28,9 +28,10 @@ vim.opt.cmdheight=1
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.config/nvim/plugged')
 Plug('neoclide/coc.nvim', {branch='release'})
+Plug 'jacquesg/p5-Neovim-Ext'
 Plug 'preservim/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug('nvim-treesitter/nvim-treesitter', {run=':TSUpdate'})
 Plug('nvim-telescope/telescope.nvim', {branch='0.1.x'})
 Plug 'nvim-lua/plenary.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -53,9 +54,9 @@ keyset("n", "<leader>e", ":NERDTreeMirrorToggle<CR>", {silent = true})
 keyset("n", "<s-q>", ":qall!<CR>", {silent = true})
 keyset("n", "<s-c>", ":close!<CR>", {silent = true})
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "j", [[coc#pum#visible() ? coc#pum#next(1) : "j"]], opts)
-keyset("i", "k", [[coc#pum#visible() ? coc#pum#prev(1) : "k"]], opts)
-keyset("i", "<TAB>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+keyset("i", "<TAB>", [[coc#pum#visible() ? coc#pum#next(1) : "<TAB>"]], opts)
+keyset("i", "<s-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "<s-TAB>"]], opts)
+keyset("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
 keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", {silent = true})
 keyset("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true})
