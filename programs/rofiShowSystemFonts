@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fc-list | awk '{print $1}' | sed 's/://g' | rofi -dmenu -i -width 800 -lines 20 -yoffset 50

@@ -1,0 +1,8 @@
+multigrid=true
+maximized=true
+wsl=false
+frame="Full"
+srgb=false
+idle=false
+nofork=true
+notabs=true
